@@ -1,28 +1,29 @@
-# This workflow will install Python dependencies, run tests and lint with a single version of Python
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
+# This .yml file executes the .py file in the main branch. The aim of using GitHub actions is to automate the scrapping of tweets data
 
-name: Python application
+name: Execution of Nigeria Decides
 
+# Controls when the workflow will run
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  schedule:
+        - cron: '0 0 * * *' #runs every 12 hour
 
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: windows-latest
 permissions:
   contents: read
-
-jobs:
-  build:
-
-    runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
     - name: Set up Python 3.10
       uses: actions/setup-python@v3
       with:
         python-version: "3.10"
+        update-environment: false
+        cache: 'pip'
+
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
@@ -34,6 +35,20 @@ jobs:
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-    - name: Test with pytest
+    - name: Execute pyhon script
+      run: python NigeriaDecides.py
+    - name: Commit and push if it change
       run: |
-        pytest
+        git config --local user.name actions-user
+        git config --local user.email "actions@github.com"
+        git add -A
+        git commit -m "Latest data (past 1 hour)" || exit 0
+        git push origin main
+      env: 
+        REPO_KEY: ${{secrets.GITHUB_TOKEN}}
+        username: github-actions
+    - name: Push changes # push the output folder to your repo, turn on workflow read and write permission
+      uses: ad-m/github-push-action@master
+      with:
+              github_token: ${{ secrets.GITHUB_TOKEN }}
+              force: true
