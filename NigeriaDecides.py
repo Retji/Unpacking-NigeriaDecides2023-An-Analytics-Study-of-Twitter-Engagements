@@ -2,9 +2,10 @@
 # coding: utf-8
 
 # # Data Scrapping of #SOSREX TWEETER INTERACTIONS
-# This code snippet retrieves the latest tweets containing the #SOSREX hashtag using the sntwitter package and creates a pandas dataframe Tweets_data with columns for the date, username, display name, tweet content, number of likes, number of retweets, source of tweet, number of followers, and location.
-# 
-# To view the resulting dataframe, you can simply run Tweets_data after the code snippet. Here's the code snippet displaying the resulting dataframe:
+# This code snippet retrieves the latest tweets containing the #SOSREX hashtag using the sntwitter package 
+# It creates a pandas dataframe Tweets_data with columns for the date, username, display name, tweet content, number of likes, 
+#number of retweets, source of tweet, number of followers, and location.
+
 # 
 # All codes are written in the python using the following libraries: snscrape, datetime, and pandas
 
@@ -72,7 +73,7 @@ Election_data["Date_tweeted"]=pd.to_datetime(Election_data['Date_tweeted']).dt.s
 # In[19]:
 
 
-Election_data.to_csv("C:\\Users\\Dakon\\Desktop\\Election_data.csv",index=False)
+Election_data.to_csv("Election_data.csv",index=False)
 
 
 # In[ ]:
