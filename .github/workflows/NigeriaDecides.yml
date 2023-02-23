@@ -1,6 +1,7 @@
 # This .yml file executes the .py file in the main branch. The aim of using GitHub actions is to automate the scrapping of tweets data
 
-name: Execution of Nigeria Decides
+
+name: scrape_tweets
 
 # Controls when the workflow will run
 on:
@@ -13,42 +14,38 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: windows-latest
-permissions:
-  contents: read
-    steps:
-    - uses: actions/checkout@v3
-    - name: Set up Python 3.10
-      uses: actions/setup-python@v3
-      with:
-        python-version: "3.10"
-        update-environment: false
-        cache: 'pip'
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install flake8 pytest
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Lint with flake8
-      run: |
-        # stop the build if there are Python syntax errors or undefined names
-        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-    - name: Execute pyhon script
-      run: python NigeriaDecides.py
-    - name: Commit and push if it change
-      run: |
-        git config --local user.name actions-user
-        git config --local user.email "actions@github.com"
-        git add -A
-        git commit -m "Latest data (past 1 hour)" || exit 0
-        git push origin main
-      env: 
-        REPO_KEY: ${{secrets.GITHUB_TOKEN}}
-        username: github-actions
-    - name: Push changes # push the output folder to your repo, turn on workflow read and write permission
-      uses: ad-m/github-push-action@master
-      with:
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+          - name: checkout repo content
+            uses: actions/checkout@v3 # checkout the repository content to github runner.
+            
+          - name: Set up python
+            uses: actions/setup-python@v3
+            with:
+              python-version: "3.10"
+              update-environment: false
+              cache: 'pip'
+         
+          - name: Install dependencies
+            run: |
+              python -m pip install --upgrade pip
+              pip install -r requirements.txt
+              
+          - name: Execute pyhon script
+            run: python NigeriaDecides.py
+          - name: Commit and push if it change
+            run: |
+              git config --local user.name actions-user
+              git config --local user.email "actions@github.com"
+              git add -A
+              git commit -m "Latest Data" || exit 0
+              git push origin main
+            env: 
+              REPO_KEY: ${{secrets.GITHUB_TOKEN}}
+              username: github-actions
+          - name: Push changes # push the output folder to your repo, turn on workflow read and write permission
+            uses: ad-m/github-push-action@master
+            with:
               github_token: ${{ secrets.GITHUB_TOKEN }}
               force: true
