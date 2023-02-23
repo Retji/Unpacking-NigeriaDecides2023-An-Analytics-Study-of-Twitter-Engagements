@@ -38,7 +38,7 @@ Election_tweets=[]
 
 
 for tweet in sntwitter.TwitterSearchScraper(query).get_items():
-    if len(Election_data)>5000:
+    if len(Election_tweets)>5000:
         break
     else:
         Election_tweets.append([tweet.date,tweet.user.username,tweet.user.displayname,tweet.url,
