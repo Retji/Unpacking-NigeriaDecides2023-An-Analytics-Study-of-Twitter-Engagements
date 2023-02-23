@@ -31,7 +31,7 @@ query= '(NigeriaDecides2023) lang:en until:2023-02-27 since:2023-02-17'
 # In[14]:
 
 
-Election_data=[]
+Election_tweets=[]
 
 
 # In[16]:
@@ -41,14 +41,14 @@ for tweet in sntwitter.TwitterSearchScraper(query).get_items():
     if len(Election_data)>5000:
         break
     else:
-        Election_data.append([tweet.date,tweet.user.username,tweet.user.displayname,tweet.url,
+        Election_tweets.append([tweet.date,tweet.user.username,tweet.user.displayname,tweet.url,
                             tweet.content,tweet.likeCount,tweet.retweetCount,
                             tweet.quoteCount,
                             tweet.sourceLabel,tweet.user.followersCount,tweet.user.location
                            ])
     
 # Creating a dataframe from the tweets list above 
-Election_data = pd.DataFrame(Election_data, 
+Election_data = pd.DataFrame(Election_tweets, 
                          columns=["Date_tweeted","username","display_name","tweet_link", 
                                   "Tweets","Number_of_Likes","Number_retweets",
                                   "Qouted_times",
@@ -57,31 +57,14 @@ Election_data = pd.DataFrame(Election_data,
                                  ])
 
 
-# In[17]:
-
-
-Election_data.head(50)
-
-
-# In[18]:
-
 
 #removing the "+00:00" in the datetime
 Election_data["Date_tweeted"]=pd.to_datetime(Election_data['Date_tweeted']).dt.strftime('%Y-%m-%d %H:%M:%S')
 
 
-# In[19]:
-
-
-Election_data.to_csv("Election_data.csv",index=False)
-
-
-# In[ ]:
-
-
 import pandas as pd
 # Load the existing data into a DataFrame
-filename = "C:\\Users\\Dakon\\Desktop\\Election_data.csv"
+filename = "Election_data.csv"
 existing_data = pd.read_csv(filename)
 
 # Append the new data to the existing data (assuming it has the same columns)
