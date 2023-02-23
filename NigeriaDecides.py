@@ -60,7 +60,7 @@ Election_data = pd.DataFrame(Election_tweets,
 
 #removing the "+00:00" in the datetime
 Election_data["Date_tweeted"]=pd.to_datetime(Election_data['Date_tweeted']).dt.strftime('%Y-%m-%d %H:%M:%S')
-
+import os
 # Load the existing data into a DataFrame
 filename = "Election_data.csv"
 existing_data = pd.read_csv(filename)
