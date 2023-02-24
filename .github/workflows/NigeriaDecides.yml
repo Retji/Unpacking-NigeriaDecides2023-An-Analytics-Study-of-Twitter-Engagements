@@ -34,17 +34,19 @@ jobs:
               
           - name: Execute pyhon script
             run: python NigeriaDecides.py
+            
           - name: Commit and push if it changes
             run: |
               git config --local user.name actions-user
               git config --local user.email "actions@github.com"
               git add -A
-              git commit -m "Latest Data"
-              if [ $? -eq 0 ]; then
-                git push origin main
+              if (git diff-index --quiet HEAD); then
+              echo "No changes to commit"
+               exit 0
               else
-                echo "Commit failed"; exit 1;
+                git commit -m "Latest Data"
+              git push origin main
               fi
-            env:
+              env:
               REPO_KEY: ${{ secrets.GITHUB_TOKEN }}
               username: github-actions
