@@ -35,15 +35,19 @@ jobs:
           - name: Execute pyhon script
             run: python NigeriaDecides.py
             
-          - name: Commit and push if it changes
+          - name: Commit and push if it change
             run: |
               git config --local user.name actions-user
               git config --local user.email "actions@github.com"
               git add -A
-              else
-                git commit -m "Latest Data"
-                git push origin main
-              fi
-            env:
-              REPO_KEY: ${{ secrets.GITHUB_TOKEN }}
+              git commit -m "Today Scrapped" || exit 0
+              git push origin main
+            env: 
+              REPO_KEY: ${{secrets.GITHUB_TOKEN}}
               username: github-actions
+          - name: Push changes # push the output folder to your repo, turn on workflow read and write permission
+            uses: ad-m/github-push-action@master
+            with:
+              github_token: ${{ secrets.GITHUB_TOKEN }}
+              force: true
+Footer
