@@ -63,7 +63,20 @@ Election_data["Date_tweeted"]=pd.to_datetime(Election_data['Date_tweeted']).dt.s
 
 #Exporting the data to the repository as csv
 
-Election_data.to_csv("Election_data.csv",index=False)
+import os
+# Load the existing data into a DataFrame
+filename = "Election_data.csv"
+existing_data = pd.read_csv(filename)
+
+# Append the new data to the existing data (assuming it has the same columns)
+new_data = Election_data  # Replace with the code to scrape and store the new data
+if len(new_data.columns) == len(existing_data.columns):
+    combined_data = pd.concat([existing_data, new_data], ignore_index=True)
+    # Drop duplicate rows and write the combined data back to the same file
+    combined_data.drop_duplicates(inplace=True)
+    combined_data.to_csv(filename, index=False)
+else:
+    print("The new data has a different number of columns than the existing data.")
 
 
 
