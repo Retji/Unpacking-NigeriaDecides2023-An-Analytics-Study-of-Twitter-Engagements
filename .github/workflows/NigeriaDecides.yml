@@ -6,7 +6,7 @@ name: scrape_tweets
 # Controls when the workflow will run
 on:
   schedule:
-        - cron: '0 0/1 * * *' #runs every 12 hour
+        - cron: '0 0/1 * * *' #runs every 1 hour
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -18,13 +18,12 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
           - name: checkout repo content
-            uses: actions/checkout@v3 # checkout the repository content to github runner.
+            uses: actions/checkout@v2 # checkout the repository content to github runner.
             
           - name: Set up python
-            uses: actions/setup-python@v3
+            uses: actions/setup-python@v2
             with:
               python-version: "3.10"
-              update-environment: false
               cache: 'pip'
          
           - name: Install dependencies
@@ -32,22 +31,28 @@ jobs:
               python -m pip install --upgrade pip
               pip install -r requirements.txt
               
-          - name: Execute pyhon script
-            run: python NigeriaDecides.py
+
             
-          - name: Commit changes
+          - name: Git update local repository
             run: |
               git config --local user.name actions-user
               git config --local user.email "actions@github.com"
+              git fetch origin
+              git checkout new_branch
+              git merge origin/new_branch
+              
+          - name: Execute pyhon script
+            run: python NigeriaDecides.py
+          
+          - name: Commit changes
+            run: |
               git add -A
               git commit -m "Today Scrapped"
-              git branch new_branch
-              git checkout new_branch
               git push --set-upstream origin new_branch
             env: 
               REPO_KEY: ${{secrets.GITHUB_TOKEN}}
               username: github-actions
-              
+
           - name: Create pull request
             uses: peter-evans/create-pull-request@v3
             with:
@@ -57,5 +62,3 @@ jobs:
               title: "Scraped data update"
               body: "This pull request contains updates to the scraped data."
               labels: "data update, automated"
-
-
