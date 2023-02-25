@@ -35,18 +35,27 @@ jobs:
           - name: Execute pyhon script
             run: python NigeriaDecides.py
             
-          - name: Commit and push if it change
+          - name: Commit changes
             run: |
               git config --local user.name actions-user
               git config --local user.email "actions@github.com"
               git add -A
-              git commit -m "Today Scrapped" || exit 0
-              git push origin main
+              git commit -m "Today Scrapped"
+              git branch new_branch
+              git checkout new_branch
+              git push --set-upstream origin new_branch
             env: 
               REPO_KEY: ${{secrets.GITHUB_TOKEN}}
               username: github-actions
-          - name: Push changes # push the output folder to your repo, turn on workflow read and write permission
-            uses: ad-m/github-push-action@master
+              
+          - name: Create pull request
+            uses: peter-evans/create-pull-request@v3
             with:
-              token: ${{ secrets.GH_TOKEN }}
-              force: true
+              token: ${{ secrets.GITHUB_TOKEN }}
+              commit-message: "Today Scrapped"
+              branch: new_branch
+              title: "Scraped data update"
+              body: "This pull request contains updates to the scraped data."
+              labels: "data update, automated"
+
+
