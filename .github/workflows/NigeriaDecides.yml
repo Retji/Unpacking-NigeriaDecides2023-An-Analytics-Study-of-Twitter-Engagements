@@ -46,7 +46,6 @@ jobs:
           git clone https://github.com/Retji/NigeriaDecides2023-DATA-SCRAPPING-AND-ANALYTICS.git
           cd NigeriaDecides2023-DATA-SCRAPPING-AND-ANALYTICS
           git pull origin main
-          branch
           git checkout -b new_branch
           git add .
           git commit -m "Today Scrapped"
