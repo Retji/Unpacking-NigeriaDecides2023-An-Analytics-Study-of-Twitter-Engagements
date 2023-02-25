@@ -42,6 +42,7 @@ jobs:
           git push origin new_branch
           
       - name: Pull repository  
+        run: |
           git clone https://github.com/Retji/NigeriaDecides2023-DATA-SCRAPPING-AND-ANALYTICS.git
           cd NigeriaDecides2023-DATA-SCRAPPING-AND-ANALYTICS
           git pull origin main
