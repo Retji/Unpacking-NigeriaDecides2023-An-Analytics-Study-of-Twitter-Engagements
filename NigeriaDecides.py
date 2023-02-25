@@ -25,7 +25,7 @@ from datetime import timedelta
 #Format since and until timestamps for Twitter API
 
 
-query= '(NigeriaDecides2023) lang:en until:2023-02-27 since:2023-02-17'
+query= '(NigeriaDecides2023) lang:en until:2023-02-27 since:2023-02-25'
 
 
 # In[14]:
@@ -38,7 +38,7 @@ Election_tweets=[]
 
 
 for tweet in sntwitter.TwitterSearchScraper(query).get_items():
-    if len(Election_tweets)>5000:
+    if len(Election_tweets)>10000:
         break
     else:
         Election_tweets.append([tweet.date,tweet.user.username,tweet.user.displayname,tweet.url,
