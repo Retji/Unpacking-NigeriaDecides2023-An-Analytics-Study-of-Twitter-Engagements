@@ -58,4 +58,3 @@ jobs:
               body: "This pull request contains updates to the scraped data."
               labels: "data update, automated"
 
-
