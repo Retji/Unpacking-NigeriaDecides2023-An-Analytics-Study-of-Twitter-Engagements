@@ -40,6 +40,16 @@ jobs:
           git add .
           git commit -m "Merge conflicts"
           git push origin new_branch
+          
+      - name: Pull repository  
+          git clone https://github.com/Retji/NigeriaDecides2023-DATA-SCRAPPING-AND-ANALYTICS.git
+          cd NigeriaDecides2023-DATA-SCRAPPING-AND-ANALYTICS
+          git pull origin main
+          branch
+          git checkout -b new_branch
+          git add .
+          git commit -m "Today Scrapped"
+          git push --set-upstream origin new_branch
         env:
           REPO_KEY: ${{secrets.GITHUB_TOKEN}}
           username: github-actions
