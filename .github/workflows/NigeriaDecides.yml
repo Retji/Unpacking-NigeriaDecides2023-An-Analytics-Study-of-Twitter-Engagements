@@ -48,5 +48,5 @@ jobs:
           - name: Push changes # push the output folder to your repo, turn on workflow read and write permission
             uses: ad-m/github-push-action@master
             with:
-              github_token: ${{ secrets.GITHUB_TOKEN }}
+              token: ${{ secrets.GH_TOKEN }}
               force: true
