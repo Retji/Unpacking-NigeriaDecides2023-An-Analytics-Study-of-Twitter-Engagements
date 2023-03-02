@@ -18,6 +18,17 @@ This report is in two parts:
 1. Data gathering and cleaning
 2. Data visualization and reporting on PowerBI
 
+---
+Problem Statement
+The objective of this study is to collect and analyze Twitter data related to the Nigerian Presidential Election using the #NigeriaDecides2023 and #SOSREX hashtags. The analysis will involve visualizing the data and conducting sentiment analysis on the text to gauge public sentiment regarding the election.
+
+---
+Data Sourcing
+During the data sourcing phase, I utilized Python with the snscrape library to continuously scrape Twitter data related to the Nigerian Presidential Election using the #NigeriaDecides2023 and #SOSREX hashtags. The resulting data was stored in a CSV file, which is hosted in this repository. To ensure a continuous stream of data,I utilized Github actions, with the YAML code for continuous integration located in the workflow directory.
+
+---
+Data Transformation
+
 
 ---
 This code snippet retrieves the latest tweets containing the #NIGERIADECIDES2023 hashtag using the sntwitter package and creates a pandas dataframe Tweets_data with columns for the date, username, display name, tweet content, number of likes, number of retweets, source of tweet, number of followers, and location. To view the resulting dataframe, you can simply run Tweets_data after the code snippet. Here's the code snippet displaying the resulting dataframe. All codes are written in the python using the following libraries: snscrape, datetime, and pandas
