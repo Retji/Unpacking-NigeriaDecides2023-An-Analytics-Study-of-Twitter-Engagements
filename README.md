@@ -1,5 +1,6 @@
 # Unpacking #NigeriaDecides2023: An Analytics Study of Twitter Engagements
 
+![elections pic (1)](https://user-images.githubusercontent.com/37171086/222524256-4815bb09-64e8-488d-915d-75ed8f532709.png)
 
 
 
