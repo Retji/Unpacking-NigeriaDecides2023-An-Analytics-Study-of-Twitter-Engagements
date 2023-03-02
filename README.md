@@ -19,7 +19,7 @@ This report is in two parts:
 2. Data visualization and reporting on PowerBI
 
 ---
-Problem Statement
+****Problem Statement \n
 The objective of this study is to collect and analyze Twitter data related to the Nigerian Presidential Election using the #NigeriaDecides2023 and #SOSREX hashtags. The analysis will involve visualizing the data and conducting sentiment analysis on the text to gauge public sentiment regarding the election.
 
 ---
