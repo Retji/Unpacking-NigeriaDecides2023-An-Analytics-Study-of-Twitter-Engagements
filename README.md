@@ -1,4 +1,4 @@
-# "Unpacking #NigeriaDecides2023: An Analytics Study of Twitter Engagements"
+# Unpacking #NigeriaDecides2023: An Analytics Study of Twitter Engagements
 
 
 
