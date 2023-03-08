@@ -54,7 +54,7 @@ After visualization, these are the key insights:
 You can interact and view the dashboard visualization [here:](https://app.powerbi.com/view?r=eyJrIjoiOTkxOGI4NmItN2JkZS00ZDk0LTk4ZmYtNDg5ZTFiNzg4YmVhIiwidCI6ImM4MzgxNmI2LWJhMjAtNGQ0Mi05YzQyLWFiMzAyODczOTM5MSJ9&pageName=ReportSection8eded047b1738d111570)
 
 ---
-**Conclusion**
+**Disclamer and Issues**
 
-This is more for academic and information purpose onnly
+This repository is still a work in progress, updates on data and dashboard may change as more data comes in. There are known issues with the Yaml code in the branch which was meant to continously scrape and update the data, which is being tackled. 
 
