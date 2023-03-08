@@ -47,6 +47,6 @@ After visualization, these are the key insights:
 1. 52% of the tweets were reported Neutral. These probably was due to language barrier while the text analytics AI conducted the score. A large volume of the dataset was in "pigin", Nigeria's widely spoken form of English;
 2. A large number of tweets are coming from android users,65k of 122k tweets analyzed. Hence optimizing usage of android app for twitter should be a key consideration as most twitter users in Nigeria can be inferred to be adroid users;
 3. Iphone users tend to have an above average Negative sentiment about Nigeria's election. With a 16% general score, Negative sentiment was 20% for iphone users;
-4. The most liked tweets was about results declaration. The first state to declare results was Ekiti state, this shows genuine enthusiasm about election results.
+4. The most liked tweets was about results declaration by Ekiti state. The first state to declare results was Ekiti state, this shows genuine enthusiasm and anxiety for the outcome of the elections.
 5. The most re-tweeted tweet was about an alleged tweet on a video trending regarding the Nigerian Army interferrence and collusion to help rig the election
 
