@@ -41,7 +41,8 @@ The data was pre-cleaned while it was being scraped. The 00.00 time component in
 ---
 **Visualization and Analysis**
 
-![dashboard nigeriadecides](https://user-images.githubusercontent.com/37171086/223646510-fdeff109-0eb6-45db-bcba-a0c0a6112bbc.png)
+![unpack viz](https://user-images.githubusercontent.com/37171086/223653085-2cab240a-19b5-4895-bf68-af746d7da8dc.png)
+
 
 After visualization, these are the key insights:
 1. 52% of the tweets were reported Neutral. These probably was due to language barrier while the text analytics AI conducted the score. A large volume of the dataset was in "pigin", Nigeria's widely spoken form of English;
