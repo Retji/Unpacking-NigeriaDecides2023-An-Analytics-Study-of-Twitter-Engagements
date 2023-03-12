@@ -54,7 +54,7 @@ After visualization, these are the key insights:
 
 You can interact and view the dashboard visualization [here:](https://app.powerbi.com/view?r=eyJrIjoiOTkxOGI4NmItN2JkZS00ZDk0LTk4ZmYtNDg5ZTFiNzg4YmVhIiwidCI6ImM4MzgxNmI2LWJhMjAtNGQ0Mi05YzQyLWFiMzAyODczOTM5MSJ9&pageName=ReportSection8eded047b1738d111570)
 
-or [here](<iframe title="Unpacking NigeriaDecides2023" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiOTkxOGI4NmItN2JkZS00ZDk0LTk4ZmYtNDg5ZTFiNzg4YmVhIiwidCI6ImM4MzgxNmI2LWJhMjAtNGQ0Mi05YzQyLWFiMzAyODczOTM5MSJ9&embedImagePlaceholder=true" frameborder="0" allowFullScreen="true"></iframe>)
+
 ---
 **Disclamer and Issues**
 
