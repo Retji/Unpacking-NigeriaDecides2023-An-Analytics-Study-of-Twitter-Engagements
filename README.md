@@ -53,7 +53,7 @@ After visualization, these are the key insights:
 5. The most re-tweeted tweet was about an alleged tweet on a video trending regarding the Nigerian Army interferrence and collusion to help rig the election.
 
 
-You can interact and view the dashboard visualization [here:](https://app.powerbi.com/view?r=eyJrIjoiOTkxOGI4NmItN2JkZS00ZDk0LTk4ZmYtNDg5ZTFiNzg4YmVhIiwidCI6ImM4MzgxNmI2LWJhMjAtNGQ0Mi05YzQyLWFiMzAyODczOTM5MSJ9&pageName=ReportSection8eded047b1738d111570)
+You can interact and view the dashboard visualization [here:](https://app.powerbi.com/view?r=eyJrIjoiYzg5NGViZWItZWVkYS00NWViLThhYTAtOTc5NzQyMjY5MWQwIiwidCI6ImM4MzgxNmI2LWJhMjAtNGQ0Mi05YzQyLWFiMzAyODczOTM5MSJ9&embedImagePlaceholder=true&pageName=ReportSection)
 
 
 ---
